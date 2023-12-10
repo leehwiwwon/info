@@ -1,0 +1,43 @@
+<!-- legend_display.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WMS Legend Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.2/css/bootstrap.min.css' %}">
+    <div class="container">
+        <h1>{{ legend_name }}</h1>
+        <p class="container-fluid">Category: {{ legend_category }}</p>
+        <a class="btn btn-primary" href="{% url 'status' %}">통계 사이트</a>
+        </div>
+    <div id="map" style="height: 400px;"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var geojsonData = '{{ geojson_data|safe }}';
+        var map = L.map('map').setView([37.5, 127.0], 11);  // Set initial center and zoom level
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        L.geoJSON(JSON.parse(geojsonData), {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                    radius: 8,
+                    fillColor: feature.properties.color,
+                    color: '#000',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                });
+            },
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.grade_name);
+            }
+        }).addTo(map);
+    </script>
+</body>
+</html>

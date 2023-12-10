@@ -1,0 +1,22 @@
+/* Import Bootstrap CSS (assuming you have Bootstrap linked in your HTML) */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+/* Your custom styles go below this line */
+
+/* Example: Change the background color of the body */
+body {
+    background-color: #f8f9fa; /* Replace with your desired color */
+}
+
+/* Example: Style a custom class */
+.my-custom-class {
+    font-size: 18px;
+    color: #007bff; /* Bootstrap's primary color */
+}
+ul {
+  display: block;
+  list-style-type: disc;
+    margin: 1em 0;
+    padding-left: 40px;
+}
+

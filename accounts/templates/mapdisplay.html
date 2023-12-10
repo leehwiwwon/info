@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load static %}
+{% block content %}
+    {# Your other template content goes here #}
+
+    {# Include the HTML from the static directory #}
+    {% include 'testapi.html' %}
+{% endblock %}
+</body>
+</html>

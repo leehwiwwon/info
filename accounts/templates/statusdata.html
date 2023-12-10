@@ -1,0 +1,31 @@
+<!-- statusdata.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-5.3.2/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Data from Database</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Crime Type</th>
+                    <!-- Add more headers based on your model fields -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.범죄대분류 }} - {{ item.\u범죄중분류 }} - {{ item.\u서울 }}</td>
+                        <!-- Add more columns based on your model fields -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

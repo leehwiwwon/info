@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-5.3.2/css/bootstrap.min.css' %}">
+    <form id="crimeForm" method="post" action="{% url 'displaydata' %}">
+        {% csrf_token %}
+        <div class="container">
+            <h1>통계 사이트</h1>
+            <br>
+            <p class="container-fluid">원하는 범죄를 고르세요.</p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="강력"><label class="form-check-label">강력</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="절도"><label class="form-check-label">절도</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="폭력"><label class="form-check-label">폭력</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="지능"><label class="form-check-label">지능</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="풍속"><label class="form-check-label">풍속</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="특별경제"><label class="form-check-label">특별경제</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="마약"><label class="form-check-label">마약</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="보건"><label class="form-check-label">보건</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="환경"><label class="form-check-label">환경</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="교통"><label class="form-check-label">교통</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="노동"><label class="form-check-label">노동</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="안보"><label class="form-check-label">안보</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="선거"><label class="form-check-label">선거</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="병역"><label class="form-check-label">병역</label></input>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="crime" value="기타"><label class="form-check-label">기타</label></input>
+            </div>
+            <a class="btn btn-primary" href="{% url 'displaydata' %}" onclick="submitForm()">확인</a>
+        </div>
+    </form>
+    <script>
+        function submitForm() {
+            document.getElementById('crimeForm').submit();
+        }
+    </script>
+</body>
+</html>
