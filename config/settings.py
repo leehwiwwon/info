@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'accounts',
     'front',
     'roadmap',
-    'wms',
     'testapi',
     'status',
 ]
