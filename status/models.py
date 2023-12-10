@@ -94,4 +94,4 @@ class Status(models.Model):
     도시이외 = models.IntegerField()
 
     def __str__(self):
-        return f"{self.범죄대분류} - {self.범죄중분류}"
+        return self.범죄대분류, self.범죄중분류, self.도시이외, self.기타도시, self.서울, self.부산, self.대구, self.인천
